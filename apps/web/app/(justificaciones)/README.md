@@ -24,3 +24,4 @@ Gestionar registro de faltas, conversion de retardos a faltas y solicitudes de j
 ## Carpeta de trabajo
 - `apps/web/app/(justificaciones)/`
 
+## Intento de push a rama
