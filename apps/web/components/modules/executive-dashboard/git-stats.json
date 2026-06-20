@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-18T23:53:05.674Z",
-  "headCommit": "3e8bf3c9ee0ede88d20d39c9ce55d4219a3e488e",
+  "generatedAt": "2026-06-20T00:22:21.056Z",
+  "headCommit": "70aa8f9a65819011189e1d6c6e42c7b31ab0b15c",
   "githubAvailable": true,
-  "totalCommits": 62,
+  "totalCommits": 63,
   "totalPRs": 10,
   "mergedPRs": 9,
   "openPRs": 0,
@@ -33,7 +33,7 @@
     },
     {
       "squad": "Admin (Dashboard Gobernanza)",
-      "progreso": 53
+      "progreso": 54
     }
   ],
   "prsBySquad": [
@@ -80,18 +80,30 @@
     },
     {
       "week": "W-2",
-      "commits": 23
+      "commits": 26
     },
     {
       "week": "W-1",
-      "commits": 8
+      "commits": 5
     },
     {
       "week": "Actual",
-      "commits": 2
+      "commits": 3
     }
   ],
   "recentActivities": [
+    {
+      "user": "Jassiel García",
+      "action": "hotfix",
+      "description": "fix(admin): keep git dashboard metrics current",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "19-jun",
+      "time": "18:18",
+      "status": "Completado",
+      "impact": "Medio"
+    },
     {
       "user": "Jassiel García",
       "action": "validation",
@@ -261,18 +273,6 @@
       "impact": "Alto"
     },
     {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge pull request #6 from Cangregito/feature/squad-5-incidents",
-      "module": "Incidencias",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "03-jun",
-      "time": "18:32",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
       "user": "Langostin",
       "action": "approval",
       "description": "Pull Request #10: Feature/squad 2 authentication (Estado: CLOSED)",
@@ -338,9 +338,9 @@
       "name": "Jassiel García",
       "squad": "Admin Master",
       "role": "Project Lead",
-      "tasks": 53,
+      "tasks": 54,
       "progress": 100,
-      "weekly": "53 cambios",
+      "weekly": "54 cambios",
       "prs": 3,
       "status": "activo"
     },

@@ -1,6 +1,9 @@
 import { execSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
+import { fileURLToPath } from "node:url";
+
+const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 
 // Mapeo real de correos/nombres de git a integrantes y squads reales
 const MEMBER_MAPPING = [
@@ -327,7 +330,7 @@ async function run() {
     };
 
     const outputPath = path.join(
-      process.cwd(),
+      repositoryRoot,
       "apps/web/components/modules/executive-dashboard/git-stats.json"
     );
     fs.writeFileSync(outputPath, JSON.stringify(outputData, null, 2), "utf-8");
