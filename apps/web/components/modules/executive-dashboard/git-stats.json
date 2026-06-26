@@ -1,10 +1,7 @@
 {
-  "generatedAt": "2026-06-20T00:28:59.493Z",
-  "headCommit": "eb77036c993fdab51cdf62e2b75db108d5e957da",
-  "githubAvailable": true,
-  "totalCommits": 80,
-  "totalPRs": 10,
-  "mergedPRs": 9,
+  "totalCommits": 63,
+  "totalPRs": 8,
+  "mergedPRs": 8,
   "openPRs": 0,
   "commitsBySquad": [
     {
@@ -76,22 +73,82 @@
   "commitsByWeek": [
     {
       "week": "W-3",
-      "commits": 4
+      "commits": 19
     },
     {
       "week": "W-2",
-      "commits": 32
+      "commits": 0
     },
     {
       "week": "W-1",
-      "commits": 9
+      "commits": 31
     },
     {
       "week": "Actual",
-      "commits": 10
+      "commits": 3
     }
   ],
   "recentActivities": [
+    {
+      "user": "Marvin61-LOVIU",
+      "action": "validation",
+      "description": "x",
+      "module": "Dashboard Base",
+      "squad": "Externo",
+      "sprint": "Sprint 3",
+      "date": "13-jun",
+      "time": "19:16",
+      "status": "Completado",
+      "impact": "Medio"
+    },
+    {
+      "user": "Marvin61-LOVIU",
+      "action": "validation",
+      "description": "x",
+      "module": "Dashboard Base",
+      "squad": "Externo",
+      "sprint": "Sprint 3",
+      "date": "13-jun",
+      "time": "19:16",
+      "status": "Completado",
+      "impact": "Medio"
+    },
+    {
+      "user": "Marvin61-LOVIU",
+      "action": "validation",
+      "description": "x",
+      "module": "Dashboard Base",
+      "squad": "Externo",
+      "sprint": "Sprint 3",
+      "date": "13-jun",
+      "time": "19:16",
+      "status": "Completado",
+      "impact": "Medio"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "validation",
+      "description": "feat(admin): implement dynamic role validation via Supabase profiles table, removing hardcoded email checks",
+      "module": "Notificaciones",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "05-jun",
+      "time": "19:19",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "validation",
+      "description": "feat(admin): fetch pull requests from GitHub and compute module progress dynamically",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "05-jun",
+      "time": "19:13",
+      "status": "Completado",
+      "impact": "Alto"
+    },
     {
       "user": "Jassiel García",
       "action": "merge",
@@ -213,90 +270,6 @@
       "impact": "Alto"
     },
     {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge branch 'main' into feature/squad-2-authentication",
-      "module": "Autenticación",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "05-jun",
-      "time": "19:19",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "validation",
-      "description": "feat(admin): implement dynamic role validation via Supabase profiles table, removing hardcoded email checks",
-      "module": "Notificaciones",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "05-jun",
-      "time": "19:19",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge branch 'main' into feature/squad-2-authentication",
-      "module": "Autenticación",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "05-jun",
-      "time": "19:15",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "validation",
-      "description": "feat(admin): fetch pull requests from GitHub and compute module progress dynamically",
-      "module": "Dashboard Base",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "05-jun",
-      "time": "19:13",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "validation",
-      "description": "feat(admin): load real git statistics, assign real squad members, and adapt dashboard UI to design system theme",
-      "module": "Dashboard Base",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "05-jun",
-      "time": "19:07",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Langostin",
-      "action": "approval",
-      "description": "Pull Request #10: Feature/squad 2 authentication (Estado: CLOSED)",
-      "module": "Autenticación",
-      "squad": "Squad 2",
-      "sprint": "Sprint 3",
-      "date": "15-jun",
-      "time": "21:28",
-      "status": "Fusionado",
-      "impact": "Alto"
-    },
-    {
-      "user": "ReyMarroquin",
-      "action": "approval",
-      "description": "Pull Request #9: Prueba de push a rama feature/squad-6-chatbot (Estado: CLOSED)",
-      "module": "Chatbot",
-      "squad": "Squad 6",
-      "sprint": "Sprint 3",
-      "date": "15-jun",
-      "time": "19:25",
-      "status": "Fusionado",
-      "impact": "Alto"
-    },
-    {
       "user": "Langostin",
       "action": "approval",
       "description": "Pull Request #8: prueba pull request (Estado: CLOSED)",
@@ -338,10 +311,20 @@
       "name": "Jassiel García",
       "squad": "Admin Master",
       "role": "Project Lead",
-      "tasks": 67,
+      "tasks": 51,
       "progress": 100,
-      "weekly": "67 cambios",
+      "weekly": "51 cambios",
       "prs": 3,
+      "status": "activo"
+    },
+    {
+      "name": "Marvin61-LOVIU",
+      "squad": "Externo",
+      "role": "Desarrollador",
+      "tasks": 3,
+      "progress": 64,
+      "weekly": "3 cambios",
+      "prs": 1,
       "status": "activo"
     },
     {
