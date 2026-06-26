@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-26T03:16:16.845Z",
-  "headCommit": "d4084a241d801076abca532535df8e9a9eb8f09f",
+  "generatedAt": "2026-06-26T03:18:14.772Z",
+  "headCommit": "20d3fc16a4aae420dc106d727768268a2f4050ba",
   "githubAvailable": true,
-  "totalCommits": 90,
+  "totalCommits": 91,
   "totalPRs": 13,
   "mergedPRs": 11,
   "openPRs": 1,
@@ -33,7 +33,7 @@
     },
     {
       "squad": "Admin (Dashboard Gobernanza)",
-      "progreso": 71
+      "progreso": 72
     }
   ],
   "prsBySquad": [
@@ -76,11 +76,11 @@
   "commitsByWeek": [
     {
       "week": "W-3",
-      "commits": 24
+      "commits": 25
     },
     {
       "week": "W-2",
-      "commits": 17
+      "commits": 16
     },
     {
       "week": "W-1",
@@ -88,10 +88,22 @@
     },
     {
       "week": "Actual",
-      "commits": 12
+      "commits": 13
     }
   ],
   "recentActivities": [
+    {
+      "user": "Jassiel García",
+      "action": "hotfix",
+      "description": "fix(admin): refresh squad progress dashboard",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "25-jun",
+      "time": "21:16",
+      "status": "Completado",
+      "impact": "Medio"
+    },
     {
       "user": "Jassiel García",
       "action": "merge",
@@ -261,18 +273,6 @@
       "impact": "Alto"
     },
     {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge pull request #10 from Langostin/feature/squad-2-authentication",
-      "module": "Autenticación",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "15-jun",
-      "time": "21:30",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
       "user": "Langostin",
       "action": "approval",
       "description": "Pull Request #13: prueba (Estado: OPEN)",
@@ -338,9 +338,9 @@
       "name": "Jassiel García",
       "squad": "Admin Master",
       "role": "Project Lead",
-      "tasks": 71,
+      "tasks": 72,
       "progress": 100,
-      "weekly": "71 cambios",
+      "weekly": "72 cambios",
       "prs": 3,
       "status": "activo"
     },
