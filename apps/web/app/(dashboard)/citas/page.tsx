@@ -44,7 +44,7 @@ const seedData: Appointment[] = [
   },
 ];
 
-//Holaaaa
+//Holaaaaaaaa alan
 function toMinutes(value: string) {
   const [h, m] = value.split(":").map(Number);
   return h * 60 + m;
