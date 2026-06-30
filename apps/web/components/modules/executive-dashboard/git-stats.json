@@ -1,8 +1,8 @@
 {
-  "generatedAt": "2026-06-30T01:18:59.508Z",
-  "headCommit": "6441c4c50119efeba6ac70745d974d60f6614e6f",
+  "generatedAt": "2026-06-30T01:21:32.615Z",
+  "headCommit": "da740c48b7b2d35234ee665d870147224b566b94",
   "githubAvailable": true,
-  "totalCommits": 107,
+  "totalCommits": 110,
   "totalPRs": 18,
   "mergedPRs": 16,
   "openPRs": 1,
@@ -33,7 +33,7 @@
     },
     {
       "squad": "Admin (Dashboard Gobernanza)",
-      "progreso": 83
+      "progreso": 86
     }
   ],
   "prsBySquad": [
@@ -88,10 +88,34 @@
     },
     {
       "week": "Actual",
-      "commits": 21
+      "commits": 24
     }
   ],
   "recentActivities": [
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge remote-tracking branch 'origin/main'",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "29-jun",
+      "time": "19:20",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "chore: update governance git stats after squad merges",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "29-jun",
+      "time": "19:19",
+      "status": "Completado",
+      "impact": "Alto"
+    },
     {
       "user": "Jassiel García",
       "action": "merge",
@@ -149,6 +173,18 @@
       "sprint": "Sprint 3",
       "date": "29-jun",
       "time": "19:01",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge pull request #17 from Cangregito/feature/squad-2-authentication",
+      "module": "Autenticación",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "29-jun",
+      "time": "19:00",
       "status": "Completado",
       "impact": "Alto"
     },
@@ -237,42 +273,6 @@
       "impact": "Alto"
     },
     {
-      "user": "Sugey Ortega",
-      "action": "validation",
-      "description": "feat(incidents): agrega estructura inicial para diseño de login",
-      "module": "Autenticación",
-      "squad": "Externo",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "18:19",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Eduardo García",
-      "action": "validation",
-      "description": "feat(citas): scaffold módulo de citas - tabla, hooks, calendar y páginas",
-      "module": "Citas",
-      "squad": "Squad 3",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "18:19",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "hotfix",
-      "description": "fix(deploy): sync pnpm lockfile",
-      "module": "Dashboard Base",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "25-jun",
-      "time": "21:19",
-      "status": "Completado",
-      "impact": "Medio"
-    },
-    {
       "user": "karlaclp",
       "action": "approval",
       "description": "Pull Request #18: Prueba de push en Front End (Estado: OPEN)",
@@ -338,9 +338,9 @@
       "name": "Jassiel García",
       "squad": "Admin Master",
       "role": "Project Lead",
-      "tasks": 83,
+      "tasks": 86,
       "progress": 100,
-      "weekly": "83 cambios",
+      "weekly": "86 cambios",
       "prs": 4,
       "status": "activo"
     },
