@@ -152,6 +152,28 @@ function getPriorityLabel(priority: Priority) {
   return priority === "alta" ? "Alta" : priority === "media" ? "Media" : "Baja";
 }
 
+function getTypeStyle(type: RequestType) {
+  switch (type) {
+    case "medica":
+      return "bg-cyan-100 text-cyan-800";
+    case "laboral":
+      return "bg-indigo-100 text-indigo-800";
+    default:
+      return "bg-violet-100 text-violet-800";
+  }
+}
+
+function getPriorityStyle(priority: Priority) {
+  switch (priority) {
+    case "alta":
+      return "bg-rose-100 text-rose-800";
+    case "media":
+      return "bg-amber-100 text-amber-800";
+    default:
+      return "bg-emerald-100 text-emerald-800";
+  }
+}
+
 export default function JustificacionesPage() {
   const [requests, setRequests] = useState<Justification[]>(seedData);
   const [message, setMessage] = useState("");
@@ -326,18 +348,22 @@ export default function JustificacionesPage() {
   return (
     <main className="min-h-screen bg-slate-100 px-6 py-8 md:px-10">
       <section className="mx-auto max-w-7xl space-y-6">
-        <header className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
-          <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+        <header className="overflow-hidden rounded-3xl bg-gradient-to-r from-slate-900 via-slate-800 to-slate-700 p-6 text-white shadow-lg md:p-8">
+          <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
             <div>
-              <p className="text-xs font-semibold uppercase tracking-wider text-teal-600">Gestión premium · Squad 1</p>
-              <h1 className="mt-2 text-3xl font-black text-slate-900">Centro de Justificaciones</h1>
-              <p className="mt-2 text-sm text-slate-600">
-                Control total del ciclo de casos, seguimiento detallado, actividades premium y trazabilidad completa de cada solicitud.
+              <p className="text-xs font-semibold uppercase tracking-wider text-cyan-200">Gestión premium · Squad 1</p>
+              <h1 className="mt-2 text-3xl font-black">Centro de Justificaciones</h1>
+              <p className="mt-2 max-w-2xl text-sm text-slate-200/90">
+                Control total del ciclo de casos, seguimiento detallado y trazabilidad completa para que cada justificación avance de forma ágil y clara.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/" className="rounded-xl bg-slate-900 px-4 py-2 text-xs font-semibold text-white">Inicio</Link>
-              <Link href="/notificaciones" className="rounded-xl border border-slate-300 px-4 py-2 text-xs font-semibold text-slate-700">Centro de notificaciones</Link>
+            <div className="flex flex-wrap items-center justify-end gap-3">
+              <Link href="/" className="rounded-full bg-white/10 px-4 py-2 text-xs font-semibold text-white ring-1 ring-white/20 transition hover:bg-white/20">
+                Volver al inicio
+              </Link>
+              <Link href="/notificaciones" className="rounded-full bg-white/10 px-4 py-2 text-xs font-semibold text-white ring-1 ring-white/20 transition hover:bg-white/20">
+                Notificaciones
+              </Link>
               <button
                 type="button"
                 onClick={() => {
@@ -346,11 +372,25 @@ export default function JustificacionesPage() {
                   setPrioridadFilter("todos");
                   setSearchQuery("");
                 }}
-                className="rounded-xl border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
+                className="rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-semibold text-white transition hover:bg-white/20"
               >
                 Limpiar filtros
               </button>
             </div>
+          </div>
+
+          <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+            {[
+              { label: "Total", value: requests.length, tone: "bg-white/10 text-white" },
+              { label: "Pendientes", value: totals.en_revision + totals.enviada + totals.observacion + totals.escalada, tone: "bg-amber-100/15 text-amber-100" },
+              { label: "Aprobadas", value: totals.aprobada, tone: "bg-emerald-100/15 text-emerald-100" },
+              { label: "Rechazadas", value: totals.rechazada, tone: "bg-slate-100/15 text-slate-100" },
+            ].map((card) => (
+              <div key={card.label} className={`rounded-3xl border border-white/10 p-4 shadow-sm ${card.tone}`}>
+                <p className="text-[11px] uppercase tracking-[0.24em] text-white/70">{card.label}</p>
+                <p className="mt-3 text-3xl font-black">{card.value}</p>
+              </div>
+            ))}
           </div>
         </header>
 
@@ -371,7 +411,7 @@ export default function JustificacionesPage() {
             </div>
 
             <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="flex flex-wrap items-center justify-between gap-4">
+              <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <h2 className="text-sm font-bold uppercase tracking-wide text-slate-700">Buscar y filtrar casos</h2>
                   <p className="mt-1 text-xs text-slate-500">Encuentra solicitudes por ID, alumno, materia o prioridad.</p>
@@ -381,17 +421,20 @@ export default function JustificacionesPage() {
                 </span>
               </div>
 
-              <div className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
-                <input
-                  value={searchQuery}
-                  onChange={(event) => setSearchQuery(event.target.value)}
-                  placeholder="Buscar solicitudes..."
-                  className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm"
-                />
+              <div className="mt-5 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
+                <div className="relative">
+                  <input
+                    value={searchQuery}
+                    onChange={(event) => setSearchQuery(event.target.value)}
+                    placeholder="Buscar solicitudes..."
+                    className="w-full rounded-3xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
+                  />
+                  <span className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-slate-400 text-sm">⌕</span>
+                </div>
                 <select
                   value={statusFilter}
                   onChange={(event) => setStatusFilter(event.target.value as RequestStatus | "todos")}
-                  className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm"
+                  className="w-full rounded-3xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
                 >
                   <option value="todos">Todos los estados</option>
                   <option value="borrador">Borrador</option>
@@ -405,7 +448,7 @@ export default function JustificacionesPage() {
                 <select
                   value={tipoFilter}
                   onChange={(event) => setTipoFilter(event.target.value as RequestType | "todos")}
-                  className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm"
+                  className="w-full rounded-3xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
                 >
                   <option value="todos">Todos los tipos</option>
                   <option value="medica">Médica</option>
@@ -415,7 +458,7 @@ export default function JustificacionesPage() {
                 <select
                   value={prioridadFilter}
                   onChange={(event) => setPrioridadFilter(event.target.value as Priority | "todos")}
-                  className="w-full rounded-2xl border border-slate-300 bg-slate-50 px-3 py-2 text-sm"
+                  className="w-full rounded-3xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm outline-none transition focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
                 >
                   <option value="todos">Todas las prioridades</option>
                   <option value="alta">Alta</option>
@@ -497,58 +540,53 @@ export default function JustificacionesPage() {
             </section>
 
             <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="text-sm font-bold uppercase tracking-wide text-slate-700">Lista de solicitudes</h2>
+              <div className="flex items-center justify-between gap-4">
+                <div>
+                  <h2 className="text-sm font-bold uppercase tracking-wide text-slate-700">Lista de solicitudes</h2>
+                  <p className="mt-1 text-xs text-slate-500">Explora, selecciona y gestiona casos activos.</p>
+                </div>
+                <span className="rounded-full bg-slate-100 px-3 py-1 text-xs uppercase tracking-wide text-slate-600">
+                  {filteredRequests.length} casos
+                </span>
+              </div>
               <div className="mt-4 space-y-4">
-                {filteredRequests.map((item) => (
-                  <article
-                    key={item.id}
-                    className={`rounded-3xl border p-4 transition ${selectedId === item.id ? "border-teal-500 bg-slate-50" : "border-slate-200 bg-white"}`}
-                  >
-                    <div className="flex flex-wrap items-center justify-between gap-3">
-                      <div>
-                        <p className="text-sm font-semibold text-slate-900">{item.id}</p>
-                        <p className="mt-1 text-xs text-slate-500">{item.alumno} · {item.materia}</p>
+                {filteredRequests.length === 0 ? (
+                  <div className="rounded-3xl border border-dashed border-slate-300 bg-slate-50 px-6 py-10 text-center text-slate-500">
+                    No hay solicitudes que coincidan con los filtros actuales.
+                  </div>
+                ) : (
+                  filteredRequests.map((item) => (
+                    <article
+                      key={item.id}
+                      className={`group overflow-hidden rounded-3xl border transition ${selectedId === item.id ? "border-teal-500 bg-slate-50 shadow-sm" : "border-slate-200 bg-white hover:border-slate-300 hover:shadow-sm"}`}
+                    >
+                      <div className="p-4 sm:p-5">
+                        <div className="flex flex-wrap items-start justify-between gap-3">
+                          <div>
+                            <p className="text-sm font-semibold text-slate-900">{item.id}</p>
+                            <p className="mt-1 text-xs text-slate-500">{item.alumno} · {item.materia}</p>
+                          </div>
+                          <button
+                            type="button"
+                            onClick={() => setSelectedId(item.id)}
+                            className="rounded-full border border-slate-300 bg-white px-3 py-1 text-xs font-semibold text-slate-700 transition hover:bg-slate-50"
+                          >
+                            Ver caso
+                          </button>
+                        </div>
+                        <div className="mt-4 flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-slate-600">
+                          <span className={`rounded-full px-2 py-1 ${getStatusStyle(item.estado)}`}>{item.estado.replace("_", " ")}</span>
+                          <span className={"rounded-full px-2 py-1 " + getPriorityStyle(item.prioridad)}>{getPriorityLabel(item.prioridad)}</span>
+                          <span className={"rounded-full px-2 py-1 " + getTypeStyle(item.tipo)}>{item.tipo}</span>
+                        </div>
+                        <div className="mt-4 grid gap-2 sm:grid-cols-2">
+                          <p className="text-sm text-slate-600">Creado {formatDate(item.creadoEn)}</p>
+                          <p className="text-sm text-slate-600">Tutor: {item.tutor}</p>
+                        </div>
                       </div>
-                      <button
-                        type="button"
-                        onClick={() => setSelectedId(item.id)}
-                        className="rounded-full border border-slate-300 bg-white px-3 py-1 text-xs font-semibold text-slate-700 hover:bg-slate-50"
-                      >
-                        Ver caso
-                      </button>
-                    </div>
-
-                    <div className="mt-3 flex flex-wrap items-center gap-2 text-[11px] uppercase tracking-[0.18em] text-slate-600">
-                      <span className={`rounded-full px-2 py-1 ${getStatusStyle(item.estado)}`}>{item.estado.replace("_", " ")}</span>
-                      <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-700">Prioridad: {getPriorityLabel(item.prioridad)}</span>
-                      <span className="rounded-full bg-slate-100 px-2 py-1 text-slate-700">Tipo: {item.tipo}</span>
-                    </div>
-
-                    <div className="mt-3 flex flex-wrap gap-2">
-                      <button
-                        type="button"
-                        onClick={() => updateRequestStatus(item.id, "en_revision", "Caso escalado para revisión académica.")}
-                        className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
-                      >
-                        Revisar
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => updateRequestStatus(item.id, "escalada", "Escalado a coordinación por prioridad.")}
-                        className="rounded-xl border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-700 hover:bg-slate-50"
-                      >
-                        Escalar
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => updateRequestStatus(item.id, "aprobada", "Justificación aprobada automáticamente por flujo premium.")}
-                        className="rounded-xl border border-emerald-300 bg-emerald-50 px-3 py-2 text-xs font-semibold text-emerald-800 hover:bg-emerald-100"
-                      >
-                        Aprobar
-                      </button>
-                    </div>
-                  </article>
-                ))}
+                    </article>
+                  ))
+                )}
               </div>
             </section>
           </div>
@@ -606,7 +644,7 @@ export default function JustificacionesPage() {
             </section>
 
             <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <div className="flex items-center justify-between gap-4">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
                   <h2 className="text-sm font-bold uppercase tracking-wide text-slate-700">Cronograma de seguimiento</h2>
                   <p className="mt-1 text-xs text-slate-500">Historial de acciones y notas de auditoría.</p>
@@ -614,7 +652,7 @@ export default function JustificacionesPage() {
                 <button
                   type="button"
                   onClick={() => updateRequestStatus(selectedRequest?.id ?? "", "escalada", "Caso escalado manualmente desde el panel.")}
-                  className="rounded-xl border border-rose-300 bg-rose-50 px-3 py-2 text-xs font-semibold text-rose-800 hover:bg-rose-100"
+                  className="rounded-full border border-rose-300 bg-rose-50 px-4 py-2 text-xs font-semibold text-rose-800 transition hover:bg-rose-100"
                 >
                   Escalar caso
                 </button>
@@ -622,7 +660,7 @@ export default function JustificacionesPage() {
 
               <div className="mt-6 space-y-4">
                 {selectedRequest?.seguimiento.map((step) => (
-                  <div key={step.id} className="rounded-3xl border border-slate-200 bg-slate-50 p-4">
+                  <div key={step.id} className="rounded-3xl border border-slate-200 bg-slate-50 p-5 shadow-sm transition hover:border-slate-300">
                     <div className="flex flex-wrap items-center justify-between gap-3">
                       <div>
                         <p className="text-sm font-semibold text-slate-900">{step.actor} · {step.role}</p>
@@ -645,7 +683,7 @@ export default function JustificacionesPage() {
                 <button
                   type="button"
                   onClick={() => updateRequestStatus(selectedRequest?.id ?? "", nextAction, `Avanzando a estado ${nextAction}.`)}
-                  className="rounded-xl bg-slate-900 px-4 py-2 text-xs font-semibold text-white hover:bg-slate-800"
+                  className="rounded-full bg-slate-900 px-4 py-2 text-xs font-semibold text-white transition hover:bg-slate-800"
                 >
                   Mover a {nextAction.replace("_", " ")}
                 </button>
@@ -656,12 +694,12 @@ export default function JustificacionesPage() {
                   value={noteText}
                   onChange={(event) => setNoteText(event.target.value)}
                   placeholder="Escribe una observación para el caso..."
-                  className="w-full rounded-3xl border border-slate-300 px-4 py-3 text-sm text-slate-700"
+                  className="w-full rounded-3xl border border-slate-300 bg-slate-50 px-4 py-3 text-sm text-slate-700 outline-none transition focus:border-slate-400 focus:ring-2 focus:ring-slate-200"
                 />
                 <button
                   type="button"
                   onClick={() => addObservation(selectedRequest?.id ?? "", noteText)}
-                  className="rounded-3xl bg-teal-600 px-4 py-2 text-sm font-semibold text-white hover:bg-teal-700"
+                  className="rounded-3xl bg-teal-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-teal-700"
                 >
                   Guardar observación y notificar
                 </button>
