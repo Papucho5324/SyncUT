@@ -16,7 +16,7 @@ type Appointment = {
   motivo: string;
   estado: AppointmentStatus;
 };
-
+//Alan Mendez
 const STORAGE_KEY = "syncut_beta_citas_v1";
 
 const seedData: Appointment[] = [
