@@ -1,4 +1,5 @@
-"use client";
+import { revalidatePath } from "next/cache";
+import type { Tables } from "@plataforma/types";
 
 import Link from "next/link";
 import { type FormEvent, useEffect, useMemo, useState } from "react";
@@ -186,9 +187,8 @@ export default function JustificacionesPage() {
     }
   }, []);
 
-  useEffect(() => {
-    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(requests));
-  }, [requests]);
+async function addEvidence(formData: FormData) {
+  "use server";
 
   const selectedRequest = useMemo(
     () => requests.find((item) => item.id === selectedId) ?? requests[0],
