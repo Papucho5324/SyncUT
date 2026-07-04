@@ -1,19 +1,19 @@
 {
-  "generatedAt": "2026-06-30T01:42:13.762Z",
-  "headCommit": "47ce0559a8150769574c2005d4f95f2b65032226",
+  "generatedAt": "2026-07-04T00:16:54.219Z",
+  "headCommit": "b179a450db73f31dcb9e132a739ede7398bd5738",
   "githubAvailable": true,
-  "totalCommits": 119,
-  "totalPRs": 19,
-  "mergedPRs": 18,
+  "totalCommits": 131,
+  "totalPRs": 22,
+  "mergedPRs": 21,
   "openPRs": 0,
   "commitsBySquad": [
     {
       "squad": "S1 (Justificaciones)",
-      "progreso": 7
+      "progreso": 11
     },
     {
       "squad": "S2 (Autenticación)",
-      "progreso": 22
+      "progreso": 23
     },
     {
       "squad": "S3 (Citas)",
@@ -21,7 +21,7 @@
     },
     {
       "squad": "S4 (Notificaciones)",
-      "progreso": 5
+      "progreso": 8
     },
     {
       "squad": "S5 (Incidencias)",
@@ -33,14 +33,14 @@
     },
     {
       "squad": "Admin (Dashboard Gobernanza)",
-      "progreso": 58
+      "progreso": 60
     }
   ],
   "prsBySquad": [
     {
       "squad": "S1 (Justificaciones)",
-      "total": 3,
-      "closed": 3
+      "total": 4,
+      "closed": 4
     },
     {
       "squad": "S2 (Autenticación)",
@@ -54,8 +54,8 @@
     },
     {
       "squad": "S4 (Notificaciones)",
-      "total": 1,
-      "closed": 1
+      "total": 2,
+      "closed": 2
     },
     {
       "squad": "S5 (Incidencias)",
@@ -69,26 +69,26 @@
     },
     {
       "squad": "Admin (Dashboard Gobernanza)",
-      "total": 2,
-      "closed": 1
+      "total": 3,
+      "closed": 2
     }
   ],
   "commitsByWeek": [
     {
       "week": "W-3",
-      "commits": 41
+      "commits": 9
     },
     {
       "week": "W-2",
-      "commits": 4
+      "commits": 9
     },
     {
       "week": "W-1",
-      "commits": 12
+      "commits": 14
     },
     {
       "week": "Actual",
-      "commits": 33
+      "commits": 38
     }
   ],
   "moduleEvidence": [
@@ -99,23 +99,25 @@
       "href": "/justificaciones",
       "description": "Gestiona solicitudes de faltas con folio, evidencia, vencimiento, revision administrativa y auditoria.",
       "evidence": "El modulo demuestra trabajo en tramites academicos, carga de evidencias, bitacora y notificaciones de estado.",
-      "totalInteractions": 10,
-      "commits": 7,
-      "pullRequests": 3,
-      "mergedPullRequests": 3,
+      "totalInteractions": 15,
+      "commits": 11,
+      "pullRequests": 4,
+      "mergedPullRequests": 4,
       "openPullRequests": 0,
       "contributors": [
+        "Cesar Aaron Trejo Riojas",
         "Jassiel García",
         "Joel Chaparro",
         "Karla",
-        "Magdalena Silva"
+        "Magdalena Silva",
+        "Trejo342"
       ],
       "lastActivity": {
-        "type": "pull_request_merged",
-        "title": "PR #18: Prueba de push en Front End",
-        "date": "29 jun 2026",
-        "time": "19:22",
-        "iso": "2026-06-30T01:22:58.000Z"
+        "type": "commit",
+        "title": "Merge remote-tracking branch 'origin/feature/squad-1-justifications'",
+        "date": "03 jul 2026",
+        "time": "18:14",
+        "iso": "2026-07-04T00:14:26.000Z"
       }
     },
     {
@@ -125,8 +127,8 @@
       "href": "/login",
       "description": "Controla acceso, registro, recuperacion de contrasena, perfiles y proteccion de rutas por rol.",
       "evidence": "El modulo acredita apoyo en identidad, acceso seguro, flujos de login/signup y recuperacion con Supabase Auth.",
-      "totalInteractions": 27,
-      "commits": 22,
+      "totalInteractions": 28,
+      "commits": 23,
       "pullRequests": 5,
       "mergedPullRequests": 5,
       "openPullRequests": 0,
@@ -137,11 +139,11 @@
         "Ángel Zataráin"
       ],
       "lastActivity": {
-        "type": "pull_request_merged",
-        "title": "PR #19: Feature/squad 2 authentication",
+        "type": "commit",
+        "title": "chore: refresh module evidence after auth PR",
         "date": "29 jun 2026",
-        "time": "19:33",
-        "iso": "2026-06-30T01:33:19.000Z"
+        "time": "19:43",
+        "iso": "2026-06-30T01:43:17.000Z"
       }
     },
     {
@@ -175,22 +177,24 @@
       "href": "/notificaciones",
       "description": "Opera bandeja in-app, preferencias, bitacora, cola de correo y emision de eventos entre modulos.",
       "evidence": "El modulo respalda comunicacion del sistema con logs, preferencias y cola procesable por Edge Function.",
-      "totalInteractions": 6,
-      "commits": 5,
-      "pullRequests": 1,
-      "mergedPullRequests": 1,
+      "totalInteractions": 10,
+      "commits": 8,
+      "pullRequests": 2,
+      "mergedPullRequests": 2,
       "openPullRequests": 0,
       "contributors": [
         "Iván Vivanco",
         "Jassiel García",
-        "Ponkis"
+        "Kevin Roman Sanchez Sequeda",
+        "Ponkis",
+        "sask041223hchnqva0-code"
       ],
       "lastActivity": {
         "type": "commit",
-        "title": "merge: integrate squad 4 notifications",
-        "date": "25 jun 2026",
-        "time": "21:14",
-        "iso": "2026-06-26T03:14:41.000Z"
+        "title": "Merge remote-tracking branch 'origin/feature/squad-4-notifications'",
+        "date": "03 jul 2026",
+        "time": "18:14",
+        "iso": "2026-07-04T00:14:37.000Z"
       }
     },
     {
@@ -253,24 +257,133 @@
       "href": "/admin",
       "description": "Consolida datos de Git/GitHub, Supabase, auditoria, despliegues y estado ejecutivo de la plataforma.",
       "evidence": "El modulo muestra evidencia de coordinacion, integracion de PRs, produccion y seguimiento del avance general.",
-      "totalInteractions": 60,
-      "commits": 58,
-      "pullRequests": 2,
-      "mergedPullRequests": 1,
+      "totalInteractions": 63,
+      "commits": 60,
+      "pullRequests": 3,
+      "mergedPullRequests": 2,
       "openPullRequests": 0,
       "contributors": [
-        "Jassiel García"
+        "Jassiel García",
+        "Papucho5324"
       ],
       "lastActivity": {
-        "type": "commit",
-        "title": "Merge remote-tracking branch 'origin/main'",
-        "date": "29 jun 2026",
-        "time": "19:41",
-        "iso": "2026-06-30T01:41:18.000Z"
+        "type": "pull_request_merged",
+        "title": "PR #20: Refactor code structure for improved readability and maintainability by PAPUCHO",
+        "date": "01 jul 2026",
+        "time": "18:04",
+        "iso": "2026-07-02T00:04:22.000Z"
       }
     }
   ],
   "recentActivities": [
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge remote-tracking branch 'origin/feature/squad-4-notifications'",
+      "module": "Notificaciones",
+      "squad": "Squad 4",
+      "sprint": "Sprint 3",
+      "date": "03-jul",
+      "time": "18:14",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge remote-tracking branch 'origin/feature/squad-1-justifications'",
+      "module": "Justificaciones",
+      "squad": "Squad 1",
+      "sprint": "Sprint 3",
+      "date": "03-jul",
+      "time": "18:14",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge pull request #22 from Trejo342/feature/squad-1-justifications",
+      "module": "Justificaciones",
+      "squad": "Squad 1",
+      "sprint": "Sprint 3",
+      "date": "01-jul",
+      "time": "18:06",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge pull request #21 from sask041223hchnqva0-code/feature/squad-4-notifications",
+      "module": "Notificaciones",
+      "squad": "Squad 4",
+      "sprint": "Sprint 3",
+      "date": "01-jul",
+      "time": "18:05",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge pull request #20 from Papucho5324/main",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "01-jul",
+      "time": "18:04",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "merge",
+      "description": "Merge branch 'main' into main",
+      "module": "Dashboard Base",
+      "squad": "Admin Master",
+      "sprint": "Sprint 3",
+      "date": "01-jul",
+      "time": "17:48",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Cesar Aaron Trejo Riojas",
+      "action": "validation",
+      "description": "Cargando el backend feature/squad-1-justifications",
+      "module": "Justificaciones",
+      "squad": "Squad 1",
+      "sprint": "Sprint 3",
+      "date": "01-jul",
+      "time": "16:08",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Kevin Roman Sanchez Sequeda",
+      "action": "validation",
+      "description": "Prueba de push a rama feature/squad-4-notifications",
+      "module": "Notificaciones",
+      "squad": "Squad 4",
+      "sprint": "Sprint 3",
+      "date": "29-jun",
+      "time": "20:20",
+      "status": "Completado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Jassiel García",
+      "action": "validation",
+      "description": "chore: refresh module evidence after auth PR",
+      "module": "Autenticación",
+      "squad": "Squad 2",
+      "sprint": "Sprint 3",
+      "date": "29-jun",
+      "time": "19:43",
+      "status": "Completado",
+      "impact": "Medio"
+    },
     {
       "user": "Jassiel García",
       "action": "merge",
@@ -344,111 +457,39 @@
       "impact": "Medio"
     },
     {
-      "user": "Jassiel García",
-      "action": "validation",
-      "description": "chore: refresh governance stats after remote sync",
+      "user": "Trejo342",
+      "action": "approval",
+      "description": "Pull Request #22: Feature/squad 1 justifications (Estado: CLOSED)",
+      "module": "Justificaciones",
+      "squad": "Squad 1",
+      "sprint": "Sprint 3",
+      "date": "01-jul",
+      "time": "16:10",
+      "status": "Fusionado",
+      "impact": "Alto"
+    },
+    {
+      "user": "sask041223hchnqva0-code",
+      "action": "approval",
+      "description": "Pull Request #21: Feature/squad 4 notifications (Estado: CLOSED)",
+      "module": "Notificaciones",
+      "squad": "Squad 4",
+      "sprint": "Sprint 3",
+      "date": "29-jun",
+      "time": "20:22",
+      "status": "Fusionado",
+      "impact": "Alto"
+    },
+    {
+      "user": "Papucho5324",
+      "action": "approval",
+      "description": "Pull Request #20: Refactor code structure for improved readability and maintainability by PAPUCHO (Estado: CLOSED)",
       "module": "Dashboard Base",
       "squad": "Admin Master",
       "sprint": "Sprint 3",
       "date": "29-jun",
-      "time": "19:22",
-      "status": "Completado",
-      "impact": "Medio"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge remote-tracking branch 'origin/main'",
-      "module": "Dashboard Base",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "19:20",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Alan79238",
-      "action": "validation",
-      "description": "Push de alan",
-      "module": "Dashboard Base",
-      "squad": "Externo",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "19:20",
-      "status": "Completado",
-      "impact": "Medio"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "chore: update governance git stats after squad merges",
-      "module": "Dashboard Base",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "19:19",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge remote-tracking branch 'origin/feature/squad-6-chatbot'",
-      "module": "Chatbot",
-      "squad": "Squad 6",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "19:18",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge remote-tracking branch 'origin/feature/squad-5-incidents'",
-      "module": "Incidencias",
-      "squad": "Squad 5",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "19:15",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge remote-tracking branch 'origin/feature/squad-3-appointments'",
-      "module": "Citas",
-      "squad": "Squad 3",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "19:15",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "merge",
-      "description": "Merge remote-tracking branch 'origin/feature/squad-2-authentication'",
-      "module": "Autenticación",
-      "squad": "Squad 2",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "19:13",
-      "status": "Completado",
-      "impact": "Alto"
-    },
-    {
-      "user": "Jassiel García",
-      "action": "validation",
-      "description": "feat: production tutoring platform modules",
-      "module": "Dashboard Base",
-      "squad": "Admin Master",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "19:01",
-      "status": "Completado",
+      "time": "19:54",
+      "status": "Fusionado",
       "impact": "Alto"
     },
     {
@@ -474,42 +515,6 @@
       "time": "19:09",
       "status": "Fusionado",
       "impact": "Alto"
-    },
-    {
-      "user": "Cangregito",
-      "action": "approval",
-      "description": "Pull Request #17: Feature/squad 2 authentication (Estado: CLOSED)",
-      "module": "Autenticación",
-      "squad": "Squad 2",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "19:00",
-      "status": "Fusionado",
-      "impact": "Alto"
-    },
-    {
-      "user": "alexisz666",
-      "action": "approval",
-      "description": "Pull Request #16: Modulo chatbot: tablas de preguntas/respuestas y logica de consulta (Estado: CLOSED)",
-      "module": "Chatbot",
-      "squad": "Squad 6",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "18:52",
-      "status": "Fusionado",
-      "impact": "Alto"
-    },
-    {
-      "user": "LaloG1",
-      "action": "approval",
-      "description": "Pull Request #15: feat(citas): scaffold módulo de citas - tabla, hooks, calendario y páginas (Estado: CLOSED)",
-      "module": "Citas",
-      "squad": "Squad 3",
-      "sprint": "Sprint 3",
-      "date": "29-jun",
-      "time": "18:31",
-      "status": "Fusionado",
-      "impact": "Alto"
     }
   ],
   "owners": [
@@ -517,9 +522,9 @@
       "name": "Jassiel García",
       "squad": "Admin Master",
       "role": "Project Lead",
-      "tasks": 96,
+      "tasks": 104,
       "progress": 100,
-      "weekly": "92 commits · 4 PRs",
+      "weekly": "100 commits · 4 PRs",
       "prs": 4,
       "status": "activo"
     },
@@ -574,6 +579,36 @@
       "status": "activo"
     },
     {
+      "name": "Cesar Aaron Trejo Riojas",
+      "squad": "Externo",
+      "role": "Desarrollador",
+      "tasks": 1,
+      "progress": 10,
+      "weekly": "1 commits · 0 PRs",
+      "prs": 0,
+      "status": "activo"
+    },
+    {
+      "name": "Kevin Roman Sanchez Sequeda",
+      "squad": "Externo",
+      "role": "Desarrollador",
+      "tasks": 1,
+      "progress": 10,
+      "weekly": "1 commits · 0 PRs",
+      "prs": 0,
+      "status": "activo"
+    },
+    {
+      "name": "karla",
+      "squad": "Externo",
+      "role": "Desarrollador",
+      "tasks": 1,
+      "progress": 10,
+      "weekly": "1 commits · 0 PRs",
+      "prs": 0,
+      "status": "activo"
+    },
+    {
       "name": "Alexis",
       "squad": "Squad 6",
       "role": "Developer Chatbot",
@@ -581,6 +616,16 @@
       "progress": 20,
       "weekly": "1 commits · 1 PRs",
       "prs": 1,
+      "status": "activo"
+    },
+    {
+      "name": "Alfonso Chavez",
+      "squad": "Externo",
+      "role": "Desarrollador",
+      "tasks": 1,
+      "progress": 10,
+      "weekly": "1 commits · 0 PRs",
+      "prs": 0,
       "status": "activo"
     },
     {

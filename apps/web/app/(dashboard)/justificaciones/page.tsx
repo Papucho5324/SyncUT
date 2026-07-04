@@ -1,5 +1,4 @@
-import { revalidatePath } from "next/cache";
-import type { Tables } from "@plataforma/types";
+"use client";
 
 import Link from "next/link";
 import { type FormEvent, useEffect, useMemo, useState } from "react";
@@ -186,9 +185,6 @@ export default function JustificacionesPage() {
       setRequests(seedData);
     }
   }, []);
-
-async function addEvidence(formData: FormData) {
-  "use server";
 
   const selectedRequest = useMemo(
     () => requests.find((item) => item.id === selectedId) ?? requests[0],
