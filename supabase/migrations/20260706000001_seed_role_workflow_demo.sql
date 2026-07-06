@@ -32,7 +32,7 @@ SELECT
   'authenticated',
   'authenticated',
   email,
-  crypt('SyncUT2026!', gen_salt('bf')),
+  extensions.crypt('SyncUT2026!', extensions.gen_salt('bf')),
   now(),
   '{"provider":"email","providers":["email"]}'::jsonb,
   jsonb_build_object('full_name', full_name),
