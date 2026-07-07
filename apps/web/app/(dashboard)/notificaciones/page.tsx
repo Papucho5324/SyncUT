@@ -7,7 +7,6 @@ import { createSupabaseServerClient } from "@/lib/supabase/server";
 type NotificationRow = Tables<"notifications">;
 type NotificationEventTypeRow = Tables<"notification_event_types">;
 type NotificationPreferenceRow = Tables<"notification_preferences">;
-type NotificationLogRow = Tables<"notification_logs">;
 type EmailQueueSummaryRow =
   Database["public"]["Functions"]["get_email_queue_summary"]["Returns"][number];
 
@@ -106,7 +105,7 @@ export default async function NotificacionesPage({
   const items = (data ?? []) as NotificationRow[];
   const unread = items.filter((item) => !item.is_read).length;
   const eventTypes = Array.from(new Set(items.map((item) => item.event_type))).sort();
-  const [{ data: allEventTypesData }, { data: preferencesData }, { data: logsData }] = await Promise.all([
+  const [{ data: allEventTypesData }, { data: preferencesData }] = await Promise.all([
     supabase
       .from("notification_event_types")
       .select("id, slug, label, description, channel, created_at")
@@ -115,16 +114,9 @@ export default async function NotificacionesPage({
       .from("notification_preferences")
       .select("id, user_id, event_type, in_app, email, updated_at")
       .eq("user_id", profile.id),
-    supabase
-      .from("notification_logs")
-      .select("id, event_type, user_id, notification_id, email_queue_id, triggered_by, payload, created_at")
-      .eq("user_id", profile.id)
-      .order("created_at", { ascending: false })
-      .limit(20),
   ]);
   const allEventTypes = (allEventTypesData ?? []) as NotificationEventTypeRow[];
   const preferences = (preferencesData ?? []) as NotificationPreferenceRow[];
-  const logs = (logsData ?? []) as NotificationLogRow[];
   const preferencesByEvent = new Map(preferences.map((preference) => [preference.event_type, preference]));
   let queueSummary: EmailQueueSummaryRow[] = [];
   let queueSummaryError: string | null = null;
@@ -221,11 +213,6 @@ export default async function NotificacionesPage({
                 </span>
               </div>
               <p className="mt-3 text-sm text-on-surface-variant">{item.body}</p>
-              {item.metadata && Object.keys(item.metadata).length > 0 ? (
-                <p className="mt-2 break-words text-xs text-on-surface-variant">
-                  Metadata: {JSON.stringify(item.metadata)}
-                </p>
-              ) : null}
               <form action={toggleNotificationRead} className="mt-4">
                 <input type="hidden" name="id" value={item.id} />
                 <input type="hidden" name="is_read" value={String(!item.is_read)} />
@@ -324,38 +311,6 @@ export default async function NotificacionesPage({
         </section>
       ) : null}
 
-      <section className="rounded-lg border border-outline-variant bg-surface-container p-5">
-        <div className="flex flex-wrap items-center justify-between gap-3">
-          <h2 className="text-sm font-semibold uppercase text-on-surface-variant">Bitácora de emisión</h2>
-          <span className="text-xs text-on-surface-variant">{logs.length} eventos recientes</span>
-        </div>
-        <div className="mt-4 space-y-3">
-          {logs.length === 0 ? (
-            <p className="rounded border border-outline-variant bg-surface p-4 text-sm text-on-surface-variant">
-              Aún no hay eventos de notificación registrados para tu usuario.
-            </p>
-          ) : null}
-          {logs.map((log) => (
-            <article key={log.id} className="rounded border border-outline-variant bg-surface p-4">
-              <div className="flex flex-wrap items-start justify-between gap-2">
-                <div>
-                  <p className="text-sm font-semibold text-on-surface">{log.event_type}</p>
-                  <p className="mt-1 text-xs text-on-surface-variant">
-                    {new Date(log.created_at).toLocaleString("es-MX")}
-                    {log.notification_id ? " · in-app" : ""}
-                    {log.email_queue_id ? " · email en cola" : ""}
-                  </p>
-                </div>
-              </div>
-              {log.payload ? (
-                <p className="mt-2 break-words text-xs text-on-surface-variant">
-                  {JSON.stringify(log.payload)}
-                </p>
-              ) : null}
-            </article>
-          ))}
-        </div>
-      </section>
     </div>
   );
 }

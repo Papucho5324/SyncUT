@@ -487,6 +487,9 @@ export default async function JustificacionesPage({
 
           {justifications.map((item) => {
             const audit = auditByJustification.get(item.id) ?? [];
+            const visibleAudit = audit
+              .filter((event) => event.event_type === "review_note" || event.event_type === "status_changed")
+              .slice(0, 3);
             const itemFiles = filesByJustification.get(item.id) ?? [];
             return (
               <article key={item.id} className="rounded-lg border border-outline-variant bg-surface-container p-5">
@@ -532,22 +535,32 @@ export default async function JustificacionesPage({
                   </div>
                 ) : null}
 
-                <div className="mt-5 grid gap-4 lg:grid-cols-[1fr_320px]">
-                  <div className="rounded border border-outline-variant bg-surface p-4">
-                    <h3 className="text-xs font-semibold uppercase text-on-surface-variant">Bitacora</h3>
+                {visibleAudit.length > 0 ? (
+                  <details className="mt-4 rounded border border-outline-variant bg-surface p-4">
+                    <summary className="cursor-pointer text-xs font-semibold uppercase text-on-surface-variant">
+                      Seguimiento reciente
+                    </summary>
                     <div className="mt-3 space-y-3">
-                      {audit.length === 0 ? (
-                        <p className="text-sm text-on-surface-variant">Sin eventos registrados.</p>
-                      ) : null}
-                      {audit.map((event) => (
+                      {visibleAudit.map((event) => (
                         <div key={event.id} className="border-l-2 border-primary pl-3">
-                          <p className="text-sm font-medium text-on-surface">{event.note ?? event.event_type}</p>
+                          <p className="text-sm font-medium text-on-surface">{event.note ?? "Actualización del expediente"}</p>
                           <p className="mt-1 text-xs text-on-surface-variant">
                             {event.actor?.full_name ?? event.actor?.email ?? "Sistema"} · {new Date(event.created_at ?? "").toLocaleString("es-MX")}
                           </p>
                         </div>
                       ))}
                     </div>
+                  </details>
+                ) : null}
+
+                <div className="mt-5 grid gap-4 lg:grid-cols-[1fr_320px]">
+                  <div className="rounded border border-outline-variant bg-surface p-4">
+                    <h3 className="text-xs font-semibold uppercase text-on-surface-variant">Resumen operativo</h3>
+                    <p className="mt-3 text-sm text-on-surface-variant">
+                      {itemFiles.length > 0
+                        ? `${itemFiles.length} evidencia(s) registradas para revisión.`
+                        : "Sin evidencia adjunta registrada."}
+                    </p>
                   </div>
 
                   <div className="space-y-3">

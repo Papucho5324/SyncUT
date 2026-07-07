@@ -2,12 +2,9 @@ import Link from "next/link";
 
 import { requireProfile } from "@/lib/auth/session";
 import {
-  DEMO_ROLE_ACCOUNTS,
   getModulesForRole,
   ROLE_DESCRIPTIONS,
   ROLE_LABELS,
-  ROLE_PERMISSIONS,
-  type RolePermission,
   type UserRole,
 } from "@/lib/auth/roles";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
@@ -55,29 +52,6 @@ function KpiCard({
     </Link>
   );
 }
-
-const permissionLabels: Record<RolePermission, string> = {
-  "dashboard:view": "Ver panel operativo",
-  "justifications:create": "Crear justificaciones",
-  "justifications:academic_note": "Aportar contexto academico",
-  "justifications:tutor_followup": "Dar seguimiento tutorial",
-  "justifications:resolve": "Resolver justificaciones",
-  "appointments:create": "Solicitar citas",
-  "appointments:availability": "Publicar disponibilidad",
-  "appointments:confirm": "Confirmar citas",
-  "appointments:attendance": "Registrar asistencia",
-  "appointments:session_note": "Documentar sesiones",
-  "appointments:oversight": "Supervisar agenda",
-  "notifications:view": "Consultar notificaciones",
-  "notifications:send": "Enviar avisos docentes",
-  "incidents:create": "Reportar incidencias",
-  "incidents:comment": "Comentar incidencias",
-  "incidents:assign": "Asignar incidencias",
-  "incidents:resolve": "Resolver incidencias",
-  "chatbot:use": "Usar asistente",
-  "chatbot:manage": "Administrar base FAQ",
-  "governance:view": "Gobernar plataforma",
-};
 
 const workflowByRole: Record<UserRole, { title: string; steps: string[] }> = {
   student: {
@@ -178,8 +152,6 @@ export default async function DashboardOverviewPage() {
 
   const modules = getModulesForRole(profile.role).filter((item) => item.href !== "/dashboard");
   const roleWorkflow = workflowByRole[profile.role];
-  const demoAccount = DEMO_ROLE_ACCOUNTS[profile.role];
-
   return (
     <div className="flex flex-col gap-8 max-w-7xl mx-auto">
       <div>
@@ -218,7 +190,7 @@ export default async function DashboardOverviewPage() {
                 <div>
                   <h4 className="font-medium text-on-surface mb-1">{item.label}</h4>
                   <p className="text-xs text-on-surface-variant leading-relaxed">
-                    {item.permissions.map((permission) => permissionLabels[permission]).join(" / ")}
+                    {item.squad ? `${item.squad} · Disponible para tu rol` : "Disponible para tu rol"}
                   </p>
                 </div>
               </Link>
@@ -273,26 +245,6 @@ export default async function DashboardOverviewPage() {
           </div>
         </section>
       </div>
-
-      <section className="bg-surface-container-lowest border border-outline-variant rounded-lg p-5">
-        <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-          <div>
-            <h3 className="text-sm font-headline font-semibold text-on-surface uppercase">
-              Cuenta demo de este rol
-            </h3>
-            <p className="mt-1 text-xs text-on-surface-variant">
-              {demoAccount.fullName} / {demoAccount.email} / contraseña {demoAccount.password}
-            </p>
-          </div>
-          <div className="flex flex-wrap gap-2">
-            {ROLE_PERMISSIONS[profile.role].map((permission) => (
-              <span key={permission} className="rounded bg-surface-container px-2.5 py-1 text-[11px] text-on-surface-variant border border-outline-variant">
-                {permissionLabels[permission]}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
     </div>
   );
 }
